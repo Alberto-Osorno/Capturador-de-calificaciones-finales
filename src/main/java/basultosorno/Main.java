@@ -13,44 +13,64 @@ public class Main {
 
         ArrayList<Usuario> usuarios = archivoCSV.leerUsuarios(); //Lectura y guardado de los usuarios del archivo csv para el Login
 
-        //Inicio del Login
-        System.out.println("---Inicio de sesión---");
-        boolean inicioSesion;
-        do {
-            inicioSesion = Login.iniciarSesion(usuarios, usuarioLogueado);
-        }while (!inicioSesion);
+        String logOut;
+        do{
+            //Inicio del Login
+            System.out.println("---Capturador de calificaciones finales---\n");
+            System.out.println("Que desea hacer:");
+            System.out.println("1.- Iniciar sesión");
+            System.out.println("2.- Salir");
+            logOut = scanner.nextLine();
 
-        ArrayList<Estudiante> estudiantes = archivoCSV.leerEstudiantes(usuarioLogueado); //Lectura y guardado de los estudiantes del archivo csv
+            switch (logOut){
+                case "1":
+                    System.out.println("\n---Inicio de sesión---");
+                    boolean inicioSesion;
+                    do {
+                        inicioSesion = Login.iniciarSesion(usuarios, usuarioLogueado);
+                    }while (!inicioSesion);
 
-        //Inicio del bucle principal
-        int op;
-        do {
-            System.out.println("\n---Menu---\n");
-            System.out.println("Bienvenido " + usuarioLogueado.getUsuario() + " que deseas hacer:");
-            System.out.println("1.- Capturar");
-            System.out.println("2.- Generar documento CSV");
-            System.out.println("3.- Generar documento PDF");
-            System.out.println("4.- Salir");
-            op = scanner.nextInt();
+                    ArrayList<Estudiante> estudiantes = archivoCSV.leerEstudiantes(usuarioLogueado); //Lectura y guardado de los estudiantes del archivo csv
 
-            switch (op){
-                case 1:
-                    capturarCalificaciones(estudiantes);
+                    //Inicio del bucle principal
+                    String op;
+                    do {
+                        System.out.println("\n---Menu---\n");
+                        System.out.println("Bienvenido " + usuarioLogueado.getUsuario() + " que deseas hacer:");
+                        System.out.println("1.- Capturar");
+                        System.out.println("2.- Generar documento CSV");
+                        System.out.println("3.- Generar documento PDF");
+                        System.out.println("4.- Cerrar sesión");
+                        op = scanner.nextLine();
+
+                        switch (op){
+                            case "1":
+                                capturarCalificaciones(estudiantes);
+                                break;
+                            case "2":
+                                ManipuladorCSV.generarArchivoCSV(estudiantes, archivoCSV);
+                                break;
+                            case "3":
+                                ManipuladorPDF.generarArchivoPDF(estudiantes);
+                                break;
+                            case "4":
+                                System.out.println("\nCerrando sesión...");
+                                break;
+                            default:
+                                System.out.println("\nOpción invalida, intente de nuevo");
+                        }
+                    } while(!op.equals("4"));
+
                     break;
-                case 2:
-                    ManipuladorCSV.generarArchivoCSV(estudiantes, archivoCSV);
-                    break;
-                case 3:
-                    ManipuladorPDF.generarArchivoPDF(estudiantes);
-                    break;
-                case 4:
+                case "2":
                     System.out.println("\nSaliendo...");
-                    break;
+                    return;
                 default:
-                    System.out.println("\nOpción invalida");
+                    System.out.println("\nOpcion invalida, intente de nuevo\n");
+                    break;
             }
+        } while (true);
 
-        } while(op != 4);
     }
 
     // Metodo para asignarle calificaciones a todos los alumnos guardados del archivo csv
