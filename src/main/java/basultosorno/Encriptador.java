@@ -1,3 +1,5 @@
+package main.java.basultosorno;
+
 public class Encriptador {
 
     //Metodo para encriptar contraseñas con un cifrado César recorriendo cada carácter 5 lugares a la derecha

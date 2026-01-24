@@ -1,3 +1,5 @@
+package main.java.basultosorno;
+
 public class Estudiante {
     private String primerApellido;
     private String segundoApellido;
