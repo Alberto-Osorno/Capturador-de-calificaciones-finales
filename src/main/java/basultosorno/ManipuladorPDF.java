@@ -1,4 +1,4 @@
-package main.java.basultosorno;
+package basultosorno;
 
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -13,7 +13,7 @@ public class ManipuladorPDF {
     //Metodo para crear un archivo PDF con las calificaciones capturadas de los estudiantes
     public static void generarArchivoPDF(ArrayList<Estudiante> estudiantes){
         try{
-            PdfWriter escribir = new PdfWriter("./Resources/Calificaciones_DS_2026.pdf");
+            PdfWriter escribir = new PdfWriter("./resources/Calificaciones_DS_2026.pdf");
             PdfDocument pdf = new PdfDocument(escribir);
             Document documento = new Document(pdf);
 
@@ -35,6 +35,7 @@ public class ManipuladorPDF {
 
             documento.add(tabla);
             documento.close();
+            System.out.println("\n---Generar archivo PDF---");
             System.out.println("\nGenerando...");
         } catch (Exception e){
             System.out.println("\nAlgo fallo con el documento pdf");

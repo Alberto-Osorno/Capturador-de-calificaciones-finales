@@ -1,4 +1,4 @@
-package main.java.basultosorno;
+package basultosorno;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -48,7 +48,7 @@ public class ManipuladorCSV {
     public ArrayList<Usuario> leerUsuarios(){
         ArrayList<Usuario> usuarios = new ArrayList<>();
 
-        try (BufferedReader lector = new BufferedReader(new FileReader("./Resources/usuarios.csv"))){
+        try (BufferedReader lector = new BufferedReader(new FileReader("./resources/usuarios.csv"))){
             String linea;
             lector.readLine();
 
@@ -59,14 +59,14 @@ public class ManipuladorCSV {
             }
 
         }catch (Exception e){
-            System.out.println("No existe el archivo \"usuarios.csv\" en la carpeta \"Resources\"\n");
+            System.out.println("No existe el archivo \"usuarios.csv\" en la carpeta \"resources\"\n");
         }
 
         return usuarios;
     }
 
     public void escribirArchivo(ArrayList<Estudiante> estudiantes){
-        try (BufferedWriter escritor = new BufferedWriter(new FileWriter("./Resources/Calificaciones_DS_2026.csv"))){
+        try (BufferedWriter escritor = new BufferedWriter(new FileWriter("./resources/Calificaciones_DS_2026.csv"))){
             escritor.write("Matricula,Asignatura,Calificación");
             escritor.newLine();
 
@@ -81,7 +81,7 @@ public class ManipuladorCSV {
     }
 
     public static void generarArchivoCSV(ArrayList<Estudiante> estudiantes, ManipuladorCSV archivo){
-        System.out.println("\n---Generar archivo---");
+        System.out.println("\n---Generar archivo CSV---");
 
         boolean estudianteSinCalificacion = false;
         for (Estudiante estudiante : estudiantes) {

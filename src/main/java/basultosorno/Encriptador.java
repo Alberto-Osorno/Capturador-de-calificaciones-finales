@@ -1,4 +1,4 @@
-package main.java.basultosorno;
+package basultosorno;
 
 public class Encriptador {
 

@@ -1,4 +1,4 @@
-package main.java.basultosorno;
+package basultosorno;
 
 import java.util.ArrayList;
 import java.util.Scanner;

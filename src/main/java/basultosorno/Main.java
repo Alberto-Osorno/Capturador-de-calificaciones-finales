@@ -1,4 +1,4 @@
-package main.java.basultosorno;
+package basultosorno;
 
 import java.nio.file.FileAlreadyExistsException;
 import java.util.Scanner;
