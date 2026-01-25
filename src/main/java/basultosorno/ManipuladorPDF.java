@@ -38,9 +38,8 @@ public class ManipuladorPDF {
             System.out.println("\n---Generar archivo PDF---");
             System.out.println("\nGenerando...");
         } catch (Exception e){
-            System.out.println("\nAlgo fallo con el documento pdf");
+            System.out.println("\nAlgo falló con el documento pdf");
             e.printStackTrace();
         }
     }
-
 }

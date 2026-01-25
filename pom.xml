@@ -16,6 +16,7 @@
     <dependencies>
         <!-- iText 7 kernel -->
         <dependency>
+            <!-- ${itext.version} es para no repetir 9.5.0 -->
             <groupId>com.itextpdf</groupId>
             <artifactId>kernel</artifactId>
             <version>${itext.version}</version>
@@ -23,6 +24,7 @@
 
         <!-- iText 7 layout -->
         <dependency>
+            <!-- ${itext.version} es para no repetir 9.5.0 -->
             <groupId>com.itextpdf</groupId>
             <artifactId>layout</artifactId>
             <version>${itext.version}</version>
