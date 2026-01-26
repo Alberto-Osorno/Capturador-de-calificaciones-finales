@@ -9,7 +9,7 @@ public class Main {
         //Declaracion inicial de atributps
         Scanner scanner = new Scanner(System.in);
         ManipuladorCSV archivoCSV = new ManipuladorCSV();
-        Usuario usuarioLogueado = new Usuario();
+        Usuario usuarioLogueado = new Usuario(); //Instancia del usuario logeado
 
         ArrayList<Usuario> usuarios = archivoCSV.leerUsuarios(); //Lectura y guardado de los usuarios del archivo csv para el Login
 
