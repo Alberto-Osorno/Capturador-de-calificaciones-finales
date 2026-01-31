@@ -3,6 +3,7 @@ package controladores;
 import basultosorno.Login;
 import basultosorno.Usuario;
 import basultosorno.ManipuladorCSV;
+import basultosorno.VistasAplicacion;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -10,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ControladorLogin {
@@ -39,12 +41,21 @@ public class ControladorLogin {
         //Verificar el inicio de sesión
         boolean inicioCorrecto = Login.iniciarSesion(usuarios, usuarioLogueado, usuarioIngresado, contraseniaIngresada);
 
-        if(inicioCorrecto){
-            // TODO: cambiar a otra vista si quieres (menú, principal, etc.)
-        }else{
+
+        if (!inicioCorrecto) {
             lblMensaje.setText("Usuario o contraseña incorrectos");
-            usuario.clear(); //Se limpia el campo de usuario
-            contrasenia.clear(); //Se limpia el campo de contrasenia
+            usuario.clear(); //Se limpia campo usuario
+            contrasenia.clear(); //Se limpia campo contraseña
+            return; //Se sale del método
+        }
+
+        try {
+            // Cambia a Menú y obtiene su controller para pasarle el usuario
+            ControladorMenu controladorMenu = VistasAplicacion.cambiarEscenaYObtenerController(usuario, "/views/MenuView.fxml");
+            controladorMenu.setUsuarioLogueado(usuarioLogueado);
+
+        } catch (IOException e) {
+            lblMensaje.setText("Error cargando menú: " + e.getMessage());
         }
     }
 
