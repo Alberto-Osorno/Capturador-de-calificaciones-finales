@@ -3,12 +3,27 @@ package basultosorno;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class Main {
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/views/LoginView.fxml"));
+        Scene scene = new Scene(root);
+
+        stage.setTitle("Capturador de Calificaciones");
+        stage.setScene(scene);
+        stage.setResizable(false); //Para no ajustar la ventana
+        stage.show();
+    }
+
     public static void main(String[] args) {
-        //Declaracion inicial de atributps
-        Scanner scanner = new Scanner(System.in);
-        ManipuladorCSV archivoCSV = new ManipuladorCSV();
-        Usuario usuarioLogueado = new Usuario(); //Instancia del usuario logeado
+        launch(args);
     }
 
     // Metodo para asignarle calificaciones a todos los alumnos guardados del archivo csv
@@ -45,5 +60,4 @@ public class Main {
 
         }
     }
-
 }

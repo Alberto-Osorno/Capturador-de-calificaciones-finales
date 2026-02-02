@@ -41,7 +41,7 @@
             <PasswordField fx:id="contrasenia" prefWidth="250" minWidth="200" maxWidth="300" />
 
             <!-- Botón Iniciar Sesión -->
-            <Button fx:id="btnIniciar" mnemonicParsing="false" onAction="#iniciarSesion" prefHeight="33.0" prefWidth="119.0" text="INICIAR SESIÓN" />
+            <Button onAction="#iniciarSesion" prefHeight="33.0" prefWidth="119.0" text="INICIAR SESIÓN" />
 
             <!-- Botón Cerrar/Salir -->
             <Button mnemonicParsing="false" onAction="#cerrarAplicacion" prefHeight="33.0" prefWidth="119.0" text="SALIR" />

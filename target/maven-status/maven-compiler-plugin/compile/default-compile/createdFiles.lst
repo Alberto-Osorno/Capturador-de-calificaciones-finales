@@ -1,7 +1,11 @@
 basultosorno/ManipuladorCSV.class
+controladores/ControladorLogin.class
 basultosorno/Estudiante.class
 basultosorno/Main.class
 basultosorno/ManipuladorPDF.class
+controladores/ControladorMenu.class
 basultosorno/Usuario.class
 basultosorno/Encriptador.class
+basultosorno/VistasAplicacion.class
+controladores/ControladorCapturarCalificaciones.class
 basultosorno/Login.class
