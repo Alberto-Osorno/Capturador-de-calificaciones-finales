@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="306.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorLogin">
+    <children>
+        <VBox alignment="CENTER" prefHeight="405.0" prefWidth="306.0" spacing="20" maxWidth="Infinity" maxHeight="Infinity">
+            <!-- Logo -->
+            <ImageView fx:id="logo" fitHeight="71.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view">
+                <image>
+                    <Image url="@../../../../images/img.png" />
+                </image>
+            </ImageView>
+
+            <!-- Título -->
+            <Label alignment="CENTER" text="CAPTURADOR DE CALIFICACIONES" underline="true">
+                <font>
+                    <Font size="28.0" />
+                </font>
+            </Label>
+
+            <!-- Usuario -->
+            <Label alignment="CENTER" text="USUARIO">
+                <font>
+                    <Font size="28.0" />
+                </font>
+            </Label>
+            <!-- Campo de texto de Usuario con un ancho fijo -->
+            <TextField fx:id="usuario" prefWidth="250" minWidth="200" maxWidth="300" />
+
+            <!-- Contraseña -->
+            <Label alignment="CENTER" text="CONTRASEÑA">
+                <font>
+                    <Font size="28.0" />
+                </font>
+            </Label>
+            <!-- Campo de texto de Contraseña con un ancho fijo -->
+            <PasswordField fx:id="contrasenia" prefWidth="250" minWidth="200" maxWidth="300" />
+
+            <!-- Botón Iniciar Sesión -->
+            <Button onAction="#iniciarSesion" prefHeight="33.0" prefWidth="119.0" text="INICIAR SESIÓN" />
+
+            <!-- Botón Cerrar/Salir -->
+            <Button mnemonicParsing="false" onAction="#cerrarAplicacion" prefHeight="33.0" prefWidth="119.0" text="SALIR" />
+
+            <Label fx:id="lblMensaje" text="" />
+        </VBox>
+    </children>
+</StackPane>

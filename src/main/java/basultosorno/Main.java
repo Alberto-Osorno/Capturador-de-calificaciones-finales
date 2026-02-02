@@ -1,76 +1,29 @@
 package basultosorno;
 
-import java.nio.file.FileAlreadyExistsException;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class Main {
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/views/LoginView.fxml"));
+        Scene scene = new Scene(root);
+
+        stage.setTitle("Capturador de Calificaciones");
+        stage.setScene(scene);
+        stage.setResizable(false); //Para no ajustar la ventana
+        stage.show();
+    }
+
     public static void main(String[] args) {
-        //Declaracion inicial de atributps
-        Scanner scanner = new Scanner(System.in);
-        ManipuladorCSV archivoCSV = new ManipuladorCSV();
-        Usuario usuarioLogueado = new Usuario(); //Instancia del usuario logeado
-
-        ArrayList<Usuario> usuarios = archivoCSV.leerUsuarios(); //Lectura y guardado de los usuarios del archivo csv para el Login
-
-        String logOut;
-        do{
-            //Inicio del Login
-            System.out.println("---Capturador de calificaciones finales---\n");
-            System.out.println("Que desea hacer:");
-            System.out.println("1.- Iniciar sesión");
-            System.out.println("2.- Salir");
-            logOut = scanner.nextLine();
-
-            switch (logOut){
-                case "1":
-                    System.out.println("\n---Inicio de sesión---");
-                    boolean inicioSesion;
-                    do {
-                        inicioSesion = Login.iniciarSesion(usuarios, usuarioLogueado);
-                    }while (!inicioSesion);
-
-                    ArrayList<Estudiante> estudiantes = archivoCSV.leerEstudiantes(usuarioLogueado); //Lectura y guardado de los estudiantes del archivo csv
-
-                    //Inicio del bucle principal
-                    String op;
-                    do {
-                        System.out.println("\n---Menu---\n");
-                        System.out.println("Bienvenido " + usuarioLogueado.getUsuario() + " que deseas hacer:");
-                        System.out.println("1.- Capturar");
-                        System.out.println("2.- Generar documento CSV");
-                        System.out.println("3.- Generar documento PDF");
-                        System.out.println("4.- Cerrar sesión");
-                        op = scanner.nextLine();
-
-                        switch (op){
-                            case "1":
-                                capturarCalificaciones(estudiantes);
-                                break;
-                            case "2":
-                                ManipuladorCSV.generarArchivoCSV(estudiantes, archivoCSV);
-                                break;
-                            case "3":
-                                ManipuladorPDF.generarArchivoPDF(estudiantes);
-                                break;
-                            case "4":
-                                System.out.println("\nCerrando sesión...");
-                                break;
-                            default:
-                                System.out.println("\nOpción invalida, intente de nuevo");
-                        }
-                    } while(!op.equals("4"));
-
-                    break;
-                case "2":
-                    System.out.println("\nSaliendo...");
-                    return;
-                default:
-                    System.out.println("\nOpcion invalida, intente de nuevo\n");
-                    break;
-            }
-        } while (true);
-
+        launch(args);
     }
 
     // Metodo para asignarle calificaciones a todos los alumnos guardados del archivo csv
@@ -107,5 +60,4 @@ public class Main {
 
         }
     }
-
 }

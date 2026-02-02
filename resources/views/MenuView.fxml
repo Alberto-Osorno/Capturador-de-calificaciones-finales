@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<StackPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorMenu" prefWidth="600.0" prefHeight="400.0">
+    <children>
+        <VBox alignment="CENTER" spacing="18.0" maxWidth="420.0">
+            <padding>
+                <Insets top="25" right="25" bottom="25" left="25"/>
+            </padding>
+
+            <!-- Título -->
+            <Label text="MENÚ PRINCIPAL">
+                <font>
+                    <Font size="28.0"/>
+                </font>
+            </Label>
+
+            <!-- Usuario logueado -->
+            <Label fx:id="lblUsuario" text="Sesión:">
+                <font>
+                    <Font size="16.0"/>
+                </font>
+            </Label>
+
+            <Separator/>
+
+            <!-- Botones -->
+            <Button text="CAPTURAR CALIFICACIONES"
+                    prefWidth="320.0" prefHeight="40.0"
+                    onAction="#capturarCalificaciones"/>
+
+            <Button text="GENERAR CSV"
+                    prefWidth="320.0" prefHeight="40.0"
+                    onAction="#generarCSV"/>
+
+            <Button text="GENERAR PDF"
+                    prefWidth="320.0" prefHeight="40.0"
+                    onAction="#generarPDF"/>
+
+            <Button text="CERRAR SESIÓN"
+                    prefWidth="320.0" prefHeight="40.0"
+                    onAction="#cerrarSesion"/>
+
+        </VBox>
+    </children>
+</StackPane>
