@@ -7,6 +7,7 @@ import basultosorno.VistasAplicacion;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -19,8 +20,6 @@ public class ControladorLogin {
     private  TextField usuario;
     @FXML
     private PasswordField contrasenia;
-    @FXML
-    private Label lblMensaje;
 
     private final ManipuladorCSV archivoCSV = new ManipuladorCSV();
     private ArrayList<Usuario> usuarios;
@@ -28,7 +27,6 @@ public class ControladorLogin {
 
     @FXML
     private void initialize() {
-        lblMensaje.setText(""); //Mensaje en blanco
         usuarios = archivoCSV.leerUsuarios(); //Se lee el archivo de usuarios y se guarda en la lista
     }
 
@@ -43,7 +41,7 @@ public class ControladorLogin {
 
 
         if (!inicioCorrecto) {
-            lblMensaje.setText("Usuario o contraseña incorrectos");
+            VistasAplicacion.alert(Alert.AlertType.ERROR, "Error", "Usuario o contraseña incorrectos:\n");
             usuario.clear(); //Se limpia campo usuario
             contrasenia.clear(); //Se limpia campo contraseña
             return; //Se sale del método
@@ -55,7 +53,7 @@ public class ControladorLogin {
             controladorMenu.setUsuarioLogueado(usuarioLogueado);
 
         } catch (IOException e) {
-            lblMensaje.setText("Error cargando menú: " + e.getMessage());
+            VistasAplicacion.alert(Alert.AlertType.ERROR, "Error", "No se pudo abrir la ventana de menú:\n" + e.getMessage());
         }
     }
 

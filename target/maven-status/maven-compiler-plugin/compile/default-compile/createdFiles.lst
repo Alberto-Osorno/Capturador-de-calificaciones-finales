@@ -2,10 +2,10 @@ controladores/ControladorLogin.class
 basultosorno/Main.class
 basultosorno/Usuario.class
 basultosorno/Encriptador.class
-controladores/ControladorCapturarCalificaciones.class
 basultosorno/VistasAplicacion.class
+controladores/ControladorCapturarCalificaciones.class
 basultosorno/ManipuladorCSV.class
 basultosorno/Estudiante.class
-controladores/ControladorMenu.class
 basultosorno/ManipuladorPDF.class
+controladores/ControladorMenu.class
 basultosorno/Login.class

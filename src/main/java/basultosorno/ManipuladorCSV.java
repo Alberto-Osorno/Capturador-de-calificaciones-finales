@@ -56,7 +56,7 @@ public class ManipuladorCSV {
         ArrayList<Usuario> usuarios = new ArrayList<>(); //Lista de Usuarios
 
         //Instancia de BufferedReader lector que a su vez usa FileReader y recibe como parámetro el archivo de usuarios.csv
-        try (BufferedReader lector = new BufferedReader(new FileReader("./resources/usuarios.csv"))){
+        try (BufferedReader lector = new BufferedReader(new FileReader("./src/main/resources/usuarios.csv"))){
             String linea;
             lector.readLine();
 
