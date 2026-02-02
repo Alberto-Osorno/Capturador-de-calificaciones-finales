@@ -56,7 +56,7 @@ public class ManipuladorCSV {
         ArrayList<Usuario> usuarios = new ArrayList<>(); //Lista de Usuarios
 
         //Instancia de BufferedReader lector que a su vez usa FileReader y recibe como parámetro el archivo de usuarios.csv
-        try (BufferedReader lector = new BufferedReader(new FileReader("./resources/usuarios.csv"))){
+        try (BufferedReader lector = new BufferedReader(new FileReader("./src/main/resources/usuarios.csv"))){
             String linea;
             lector.readLine();
 
@@ -78,7 +78,7 @@ public class ManipuladorCSV {
 
     public void escribirArchivo(ArrayList<Estudiante> estudiantes){
         //Instancia de BufferedWritter que usa FileWriter y como parámetro la ruta del archivo
-        try (BufferedWriter escritor = new BufferedWriter(new FileWriter("./resources/Calificaciones_DS_2026.csv"))){
+        try (BufferedWriter escritor = new BufferedWriter(new FileWriter("./src/main/resources/Calificaciones_DS_2026.csv"))){
             escritor.write("Matricula,Asignatura,Calificación"); //Se escribe el encabezado del archivo csv
             escritor.newLine(); //Salto de línea
 
