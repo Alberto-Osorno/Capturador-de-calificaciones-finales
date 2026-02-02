@@ -13,7 +13,7 @@ public class ManipuladorPDF {
     //Metodo para crear un archivo PDF con las calificaciones capturadas de los estudiantes
     public static void generarArchivoPDF(ArrayList<Estudiante> estudiantes){
         try{
-            PdfWriter escribir = new PdfWriter("./resources/Calificaciones_DS_2026.pdf");
+            PdfWriter escribir = new PdfWriter(".src/main/resources/Calificaciones_DS_2026.pdf");
             PdfDocument pdf = new PdfDocument(escribir);
             Document documento = new Document(pdf);
 

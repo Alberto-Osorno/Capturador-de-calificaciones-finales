@@ -78,7 +78,7 @@ public class ManipuladorCSV {
 
     public void escribirArchivo(ArrayList<Estudiante> estudiantes){
         //Instancia de BufferedWritter que usa FileWriter y como parámetro la ruta del archivo
-        try (BufferedWriter escritor = new BufferedWriter(new FileWriter("./resources/Calificaciones_DS_2026.csv"))){
+        try (BufferedWriter escritor = new BufferedWriter(new FileWriter("./src/main/resources/Calificaciones_DS_2026.csv"))){
             escritor.write("Matricula,Asignatura,Calificación"); //Se escribe el encabezado del archivo csv
             escritor.newLine(); //Salto de línea
 
