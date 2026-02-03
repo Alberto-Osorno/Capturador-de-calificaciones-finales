@@ -1,5 +1,7 @@
 package basultosorno;
 
+import javafx.scene.control.Alert;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.BufferedWriter;
@@ -96,8 +98,7 @@ public class ManipuladorCSV {
         }
     }
 
-    public static void generarArchivoCSV(ArrayList<Estudiante> estudiantes, ManipuladorCSV archivo){
-        System.out.println("\n---Generar archivo CSV---");
+    public static boolean generarArchivoCSV(ArrayList<Estudiante> estudiantes, ManipuladorCSV archivo){
 
         boolean estudianteSinCalificacion = false; //Booleano para determinar el estado para crear el archivo csv
         for (Estudiante estudiante : estudiantes) { //Se recorre la lista de estudiantes
@@ -108,11 +109,12 @@ public class ManipuladorCSV {
         }
 
         if(!estudianteSinCalificacion){ //Sí todos tienen calificación
-            System.out.println("\nGenerando...");
             archivo.escribirArchivo(estudiantes); //Se manda a llamar a la función escribirArchivo() y se le pasa la lista de estudiantes
+            return true;
         } else{
             //Si alguno no tiene calificación
-            System.out.println("\nAl menos un alumno no tiene calificación. No se puede generar el archivo");
+            VistasAplicacion.alert(Alert.AlertType.ERROR, "Error", "Al menos un alumno no tiene calificación");
+            return false;
         }
     }
 
