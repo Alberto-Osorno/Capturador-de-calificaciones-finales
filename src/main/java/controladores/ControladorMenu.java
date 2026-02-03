@@ -1,9 +1,6 @@
 package controladores;
 
-import basultosorno.EstadosPantallas;
-import basultosorno.ManipuladorPDF;
-import basultosorno.Usuario;
-import basultosorno.VistasAplicacion;
+import basultosorno.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -17,6 +14,7 @@ public class ControladorMenu {
     @FXML
     private Label lblUsuario;
 
+    private ManipuladorCSV archivo = new ManipuladorCSV();
     private EstadosPantallas estadosPantallas;
 
     public void setEstadosPantallas(EstadosPantallas estadosPantallas) {
@@ -38,7 +36,7 @@ public class ControladorMenu {
     @FXML
     private void generarCSV() {
         try {
-            
+            ManipuladorCSV.generarArchivoCSV(estadosPantallas.getEstudiantes(), archivo);
             VistasAplicacion.alert(Alert.AlertType.INFORMATION, "Listo", "CSV generado correctamente.");
         } catch (Exception e) {
             VistasAplicacion.alert(Alert.AlertType.ERROR, "Error", "No se pudo generar el CSV:\n" + e.getMessage());

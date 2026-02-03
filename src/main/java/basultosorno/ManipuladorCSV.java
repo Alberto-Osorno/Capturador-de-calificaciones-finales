@@ -9,8 +9,9 @@ import java.util.Scanner;
 
 public class ManipuladorCSV {
 
-    public ArrayList<Estudiante> leerEstudiantes(Usuario usuarioLogueado){
-        ArrayList<Estudiante> estudiantes = new ArrayList<>(); //Lista de Estudiantes
+    public ArrayList<Estudiante> leerEstudiantes(){
+        ArrayList<Estudiante> estudiantes = new ArrayList<>();
+         //Lista de Estudiantes
 //        Scanner scanner = new Scanner(System.in);
 
 //        boolean bandera; //Bandera para determinar el estado de la lectura

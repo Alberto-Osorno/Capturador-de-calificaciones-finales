@@ -49,7 +49,7 @@ public class ControladorLogin {
             estadosPantallas.setUsuarioLogueado(usuarioLogueado); //Se setea el usuariologeado
 
             //modificar: quitar usuarioLogeado como argumento
-            estadosPantallas.getEstudiantes().addAll(archivoCSV.leerEstudiantes(usuarioLogueado)); //Carga la lista de estudiantes
+            estadosPantallas.getEstudiantes().addAll(archivoCSV.leerEstudiantes()); //Carga la lista de estudiantes
 
             ControladorMenu controladorMenu = VistasAplicacion.cambiarEscenaYObtenerController(usuario,"/views/MenuView.fxml");
             controladorMenu.setEstadosPantallas(estadosPantallas);
