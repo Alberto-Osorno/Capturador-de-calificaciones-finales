@@ -11,20 +11,20 @@ public class ManipuladorCSV {
 
     public ArrayList<Estudiante> leerEstudiantes(Usuario usuarioLogueado){
         ArrayList<Estudiante> estudiantes = new ArrayList<>(); //Lista de Estudiantes
-        Scanner scanner = new Scanner(System.in);
+//        Scanner scanner = new Scanner(System.in);
 
-        boolean bandera; //Bandera para determinar el estado de la lectura
+//        boolean bandera; //Bandera para determinar el estado de la lectura
 
-        do {
-            System.out.println("\nUsuario: " + usuarioLogueado.getUsuario());
-            System.out.println("Ingrese la ruta del archivo CSV de Estudiantes");
-            String ruta = scanner.nextLine();
+//        do {
+//            System.out.println("\nUsuario: " + usuarioLogueado.getUsuario());
+//            System.out.println("Ingrese la ruta del archivo CSV de Estudiantes");
+//            String ruta = scanner.nextLine();
 
             //Instancia de BufferedReader que usa FileReader que recibe como argumento la ruta del archivo csv
-            try (BufferedReader lector = new BufferedReader(new FileReader(ruta))) {
+            try (BufferedReader lector = new BufferedReader(new FileReader("./src/main/resources/listaDS.csv"))) {
                 //Sí la ruta termina con "csv" (para saber si es un archivo csv)
-                if (ruta.endsWith("csv")){
-                    bandera = true;
+                //if (ruta.endsWith("csv")){
+//                    bandera = true;
                     String linea; // String que almacena la línea actual del archivo
                     lector.readLine(); // Se consuma la primera línea del archivo (encabezado)
 
@@ -36,18 +36,18 @@ public class ManipuladorCSV {
                         //Se agrega la instancia a la lista de estudiantes
                         estudiantes.add(estudiante);
                     }
-                } else {
-                    //En caso de que no sea un archivo csv
-                    bandera = false;
-                    System.out.println("La ruta ingresada no es de un archivo CSV, intente de nuevo\n");
-                }
+//                } else {
+//                    //En caso de que no sea un archivo csv
+//                    bandera = false;
+//                    System.out.println("La ruta ingresada no es de un archivo CSV, intente de nuevo\n");
+//                }
             } catch (Exception e) {
                 //En caso de que ocurra una excepción al abrir el archivo
-                bandera = false;
+//                bandera = false;
                 System.out.println("Hubo un problema con la ruta ingresada, intente de nuevo\n");
             }
 
-        }while (!bandera); //Mientras la bandera sea false se repite el proceso
+//        }while (!bandera); //Mientras la bandera sea false se repite el proceso
 
         return estudiantes; //Se duvuelve la lista de estudiantes
     }
