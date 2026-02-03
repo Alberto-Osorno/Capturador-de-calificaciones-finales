@@ -64,7 +64,8 @@ public class ControladorCapturarCalificaciones {
     @FXML
     private void volverAlMenu() {
         try {
-            VistasAplicacion.cambiarEscenaYObtenerController(lblUsuario, "/views/MenuView.fxml");
+            ControladorMenu menuController = VistasAplicacion.cambiarEscenaYObtenerController(lblUsuario, "/views/MenuView.fxml");
+            menuController.setEstadosPantallas(estadosPantallas); // <-- aquí pasas el mismo objeto
         } catch (IOException e) {
             VistasAplicacion.alert(Alert.AlertType.ERROR, "Error", "No se pudo regresar al menu:\n" + e.getMessage());
         }
