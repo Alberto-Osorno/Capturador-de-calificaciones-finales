@@ -1,12 +1,12 @@
-/home/usuario/IdeaProjects/CapturadorDeCalificacionesFinales/Capturador-de-calificaciones-finales/src/main/java/basultosorno/Encriptador.java
-/home/usuario/IdeaProjects/CapturadorDeCalificacionesFinales/Capturador-de-calificaciones-finales/src/main/java/controladores/ControladorLogin.java
-/home/usuario/IdeaProjects/CapturadorDeCalificacionesFinales/Capturador-de-calificaciones-finales/src/main/java/controladores/ControladorMenu.java
-/home/usuario/IdeaProjects/CapturadorDeCalificacionesFinales/Capturador-de-calificaciones-finales/src/main/java/basultosorno/VistasAplicacion.java
-/home/usuario/IdeaProjects/CapturadorDeCalificacionesFinales/Capturador-de-calificaciones-finales/src/main/java/basultosorno/Login.java
-/home/usuario/IdeaProjects/CapturadorDeCalificacionesFinales/Capturador-de-calificaciones-finales/src/main/java/controladores/ControladorCapturarCalificaciones.java
-/home/usuario/IdeaProjects/CapturadorDeCalificacionesFinales/Capturador-de-calificaciones-finales/src/main/java/basultosorno/EstadosPantallas.java
-/home/usuario/IdeaProjects/CapturadorDeCalificacionesFinales/Capturador-de-calificaciones-finales/src/main/java/basultosorno/ManipuladorCSV.java
-/home/usuario/IdeaProjects/CapturadorDeCalificacionesFinales/Capturador-de-calificaciones-finales/src/main/java/basultosorno/Usuario.java
-/home/usuario/IdeaProjects/CapturadorDeCalificacionesFinales/Capturador-de-calificaciones-finales/src/main/java/basultosorno/ManipuladorPDF.java
-/home/usuario/IdeaProjects/CapturadorDeCalificacionesFinales/Capturador-de-calificaciones-finales/src/main/java/basultosorno/Estudiante.java
-/home/usuario/IdeaProjects/CapturadorDeCalificacionesFinales/Capturador-de-calificaciones-finales/src/main/java/basultosorno/Main.java
+/home/skalant/Diseño de Software/CapturadorDeCalificacionesFinales/src/main/java/basultosorno/Encriptador.java
+/home/skalant/Diseño de Software/CapturadorDeCalificacionesFinales/src/main/java/controladores/ControladorMenu.java
+/home/skalant/Diseño de Software/CapturadorDeCalificacionesFinales/src/main/java/controladores/ControladorLogin.java
+/home/skalant/Diseño de Software/CapturadorDeCalificacionesFinales/src/main/java/basultosorno/ManipuladorPDF.java
+/home/skalant/Diseño de Software/CapturadorDeCalificacionesFinales/src/main/java/basultosorno/EstadosPantallas.java
+/home/skalant/Diseño de Software/CapturadorDeCalificacionesFinales/src/main/java/basultosorno/Usuario.java
+/home/skalant/Diseño de Software/CapturadorDeCalificacionesFinales/src/main/java/basultosorno/Estudiante.java
+/home/skalant/Diseño de Software/CapturadorDeCalificacionesFinales/src/main/java/controladores/ControladorCapturarCalificaciones.java
+/home/skalant/Diseño de Software/CapturadorDeCalificacionesFinales/src/main/java/basultosorno/Main.java
+/home/skalant/Diseño de Software/CapturadorDeCalificacionesFinales/src/main/java/basultosorno/ManipuladorCSV.java
+/home/skalant/Diseño de Software/CapturadorDeCalificacionesFinales/src/main/java/basultosorno/Login.java
+/home/skalant/Diseño de Software/CapturadorDeCalificacionesFinales/src/main/java/basultosorno/VistasAplicacion.java
