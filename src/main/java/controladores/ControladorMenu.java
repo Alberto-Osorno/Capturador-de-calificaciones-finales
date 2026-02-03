@@ -2,17 +2,12 @@ package controladores;
 
 import basultosorno.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 
 import java.io.IOException;
-import java.util.EmptyStackException;
 
 public class ControladorMenu {
-
-    @FXML
-    private Label lblUsuario;
+    @FXML private Label lblUsuario;
 
     private ManipuladorCSV archivo = new ManipuladorCSV();
     private EstadosPantallas estadosPantallas;
@@ -27,11 +22,11 @@ public class ControladorMenu {
         try {
             ControladorCapturarCalificaciones c = VistasAplicacion.cambiarEscenaYObtenerController(lblUsuario, "/views/CapturarCalificacionesView.fxml");
             c.setEstadosPantallas(estadosPantallas);
-
         } catch (IOException e) {
             VistasAplicacion.alert(Alert.AlertType.ERROR, "Error", "No se pudo abrir la ventana de captura:\n" + e.getMessage());
         }
     }
+
 
     @FXML
     private void generarCSV() {
