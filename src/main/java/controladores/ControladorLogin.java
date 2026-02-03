@@ -1,9 +1,6 @@
 package controladores;
 
-import basultosorno.Login;
-import basultosorno.Usuario;
-import basultosorno.ManipuladorCSV;
-import basultosorno.VistasAplicacion;
+import basultosorno.*;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -21,9 +18,9 @@ public class ControladorLogin {
     @FXML
     private PasswordField contrasenia;
 
-    private final ManipuladorCSV archivoCSV = new ManipuladorCSV();
+    private ManipuladorCSV archivoCSV = new ManipuladorCSV();
     private ArrayList<Usuario> usuarios;
-    private final Usuario usuarioLogueado = new Usuario();
+    private Usuario usuarioLogueado = new Usuario();
 
     @FXML
     private void initialize() {
@@ -48,9 +45,14 @@ public class ControladorLogin {
         }
 
         try {
-            // Cambia a Menú y obtiene su controller para pasarle el usuario
-            ControladorMenu controladorMenu = VistasAplicacion.cambiarEscenaYObtenerController(usuario, "/views/MenuView.fxml");
-            controladorMenu.setUsuarioLogueado(usuarioLogueado);
+            EstadosPantallas estadosPantallas = new EstadosPantallas();
+            estadosPantallas.setUsuarioLogueado(usuarioLogueado); //Se setea el usuariologeado
+
+            //modificar: quitar usuarioLogeado como argumento
+            estadosPantallas.getEstudiantes().addAll(archivoCSV.leerEstudiantes(usuarioLogueado)); //Carga la lista de estudiantes
+
+            ControladorMenu controladorMenu = VistasAplicacion.cambiarEscenaYObtenerController(usuario,"/views/MenuView.fxml");
+            controladorMenu.setEstadosPantallas(estadosPantallas);
 
         } catch (IOException e) {
             VistasAplicacion.alert(Alert.AlertType.ERROR, "Error", "No se pudo abrir la ventana de menú:\n" + e.getMessage());

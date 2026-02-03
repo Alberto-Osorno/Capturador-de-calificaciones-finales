@@ -1,5 +1,7 @@
 package controladores;
 
+import basultosorno.EstadosPantallas;
+import basultosorno.ManipuladorPDF;
 import basultosorno.Usuario;
 import basultosorno.VistasAplicacion;
 import javafx.fxml.FXML;
@@ -8,26 +10,25 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
+import java.util.EmptyStackException;
 
 public class ControladorMenu {
 
     @FXML
     private Label lblUsuario;
 
-    private Usuario usuarioLogueado;
+    private EstadosPantallas estadosPantallas;
 
-    // Este método se llama desde el Login después de cargar Menu.fxml
-    public void setUsuarioLogueado(Usuario usuario) {
-        usuarioLogueado = usuario;
-        lblUsuario.setText("Usuario: " + usuario.getUsuario());
+    public void setEstadosPantallas(EstadosPantallas estadosPantallas) {
+        this.estadosPantallas = estadosPantallas;
+        lblUsuario.setText("Sesión: " + estadosPantallas.getUsuarioLogueado().getUsuario());
     }
 
     @FXML
     private void capturarCalificaciones() {
         try {
-            // Cambia a CapturarCalificaciones y obtiene su controller para pasarle el usuario
-            ControladorCapturarCalificaciones capturaController = VistasAplicacion.cambiarEscenaYObtenerController(lblUsuario, "/views/CapturarCalificacionesView.fxml");
-            capturaController.setUsuarioLogueado(usuarioLogueado);
+            ControladorCapturarCalificaciones c = VistasAplicacion.cambiarEscenaYObtenerController(lblUsuario, "/views/CapturarCalificacionesView.fxml");
+            c.setEstadosPantallas(estadosPantallas);
 
         } catch (IOException e) {
             VistasAplicacion.alert(Alert.AlertType.ERROR, "Error", "No se pudo abrir la ventana de captura:\n" + e.getMessage());
@@ -37,9 +38,7 @@ public class ControladorMenu {
     @FXML
     private void generarCSV() {
         try {
-            // TODO: aquí llamas tu lógica real
-            // Ejemplo: CSV.generar(...);
-
+            
             VistasAplicacion.alert(Alert.AlertType.INFORMATION, "Listo", "CSV generado correctamente.");
         } catch (Exception e) {
             VistasAplicacion.alert(Alert.AlertType.ERROR, "Error", "No se pudo generar el CSV:\n" + e.getMessage());
@@ -49,9 +48,7 @@ public class ControladorMenu {
     @FXML
     private void generarPDF() {
         try {
-            // TODO: aquí llamas tu lógica real
-            // Ejemplo: PDF.generar(...);
-
+            ManipuladorPDF.generarArchivoPDF(estadosPantallas.getEstudiantes());
             VistasAplicacion.alert(Alert.AlertType.INFORMATION, "Listo", "PDF generado correctamente.");
         } catch (Exception e) {
             VistasAplicacion.alert(Alert.AlertType.ERROR, "Error", "No se pudo generar el PDF:\n" + e.getMessage());
