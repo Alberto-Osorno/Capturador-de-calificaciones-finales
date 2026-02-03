@@ -27,7 +27,7 @@ public class ControladorCapturarCalificaciones {
     public void setEstadosPantallas(EstadosPantallas estadosPantallas) {
         this.estadosPantallas = estadosPantallas;
         lblUsuario.setText("Sesión: " + estadosPantallas.getUsuarioLogueado().getUsuario());
-        tablaEstudiantes.setItems((ObservableList<Estudiante>) estadosPantallas.getEstudiantes());
+        tablaEstudiantes.setItems(estadosPantallas.getEstudiantes());
     }
 
     @FXML
@@ -49,17 +49,12 @@ public class ControladorCapturarCalificaciones {
             Estudiante est = event.getRowValue();
             Integer nueva = event.getNewValue();
 
-            // Si el usuario dejó vacío o escribió algo raro, newValue puede venir null
-            if (nueva == null) {
+            // Validación de contenido
+            if (nueva == null || nueva < 0 || nueva > 100) {
                 VistasAplicacion.alert(Alert.AlertType.WARNING, "Aviso", "Calificación inválida.");
-                tablaEstudiantes.refresh();
-                return;
-            }
 
-            // Validación (ajusta rango si manejas 0-10 por ejemplo)
-            if (nueva < 0 || nueva > 100) {
-                VistasAplicacion.alert(Alert.AlertType.WARNING, "Aviso", "Calificación inválida (0 a 100).");
-                tablaEstudiantes.refresh(); // regresa visualmente
+                Integer anterior = event.getOldValue();
+                est.setCalificacion(anterior == null ? 0 : anterior);
                 return;
             }
 
