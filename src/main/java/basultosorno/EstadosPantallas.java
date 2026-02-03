@@ -1,12 +1,12 @@
 package basultosorno;
 
-import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class EstadosPantallas {
 
     private Usuario usuarioLogueado;
-    private ArrayList<Estudiante> estudiantes = new ArrayList<>();
-
+    private ObservableList<Estudiante> estudiantes = FXCollections.observableArrayList();
     public Usuario getUsuarioLogueado() {
         return usuarioLogueado;
     }
@@ -15,7 +15,7 @@ public class EstadosPantallas {
         usuarioLogueado = usuario;
     }
 
-    public ArrayList<Estudiante> getEstudiantes() {
+    public ObservableList<Estudiante> getEstudiantes() {
         return estudiantes;
     }
 }

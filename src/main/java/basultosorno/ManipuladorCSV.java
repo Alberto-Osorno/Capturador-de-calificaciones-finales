@@ -7,12 +7,13 @@ import java.io.FileReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ManipuladorCSV {
 
-    public ArrayList<Estudiante> leerEstudiantes(){
-        ArrayList<Estudiante> estudiantes = new ArrayList<>();
+    public List<Estudiante> leerEstudiantes(){
+        List<Estudiante> estudiantes = new ArrayList<>();
          //Lista de Estudiantes
 //        Scanner scanner = new Scanner(System.in);
 
@@ -79,7 +80,7 @@ public class ManipuladorCSV {
         return usuarios; //Se devuelve la lista de usuarios
     }
 
-    public void escribirArchivo(ArrayList<Estudiante> estudiantes){
+    public void escribirArchivo(List<Estudiante> estudiantes){
         //Instancia de BufferedWritter que usa FileWriter y como parámetro la ruta del archivo
         try (BufferedWriter escritor = new BufferedWriter(new FileWriter("./src/main/resources/Calificaciones_DS_2026.csv"))){
             escritor.write("Matricula,Asignatura,Calificación"); //Se escribe el encabezado del archivo csv
@@ -98,7 +99,7 @@ public class ManipuladorCSV {
         }
     }
 
-    public static boolean generarArchivoCSV(ArrayList<Estudiante> estudiantes, ManipuladorCSV archivo){
+    public static boolean generarArchivoCSV(List<Estudiante> estudiantes, ManipuladorCSV archivo){
 
         boolean estudianteSinCalificacion = false; //Booleano para determinar el estado para crear el archivo csv
         for (Estudiante estudiante : estudiantes) { //Se recorre la lista de estudiantes

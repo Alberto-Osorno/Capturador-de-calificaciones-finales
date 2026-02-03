@@ -7,11 +7,12 @@ import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ManipuladorPDF {
 
     //Metodo para crear un archivo PDF con las calificaciones capturadas de los estudiantes
-    public static void generarArchivoPDF(ArrayList<Estudiante> estudiantes){
+    public static void generarArchivoPDF(List<Estudiante> estudiantes){
         try{
             PdfWriter escribir = new PdfWriter("./src/main/resources/Calificaciones_DS_2026.pdf");
             PdfDocument pdf = new PdfDocument(escribir);
