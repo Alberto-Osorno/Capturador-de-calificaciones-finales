@@ -13,6 +13,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.converter.IntegerStringConverter;
 
+import java.io.IOException;
+
 public class ControladorCapturarCalificaciones {
     @FXML private TableView<Estudiante> tablaEstudiantes;
     @FXML private TableColumn<Estudiante, String> colMatricula;
@@ -27,17 +29,17 @@ public class ControladorCapturarCalificaciones {
     public void setEstadosPantallas(EstadosPantallas estadosPantallas) {
         this.estadosPantallas = estadosPantallas;
         lblUsuario.setText("Sesión: " + estadosPantallas.getUsuarioLogueado().getUsuario());
-        tablaEstudiantes.setItems((ObservableList<Estudiante>) estadosPantallas.getEstudiantes());
+        tablaEstudiantes.setItems(estadosPantallas.getEstudiantes());
     }
 
     @FXML
     public void initialize() {
         // Enlazar columnas con propiedades del modelo
-        colMatricula.setCellValueFactory(new PropertyValueFactory<>("Matricula"));
-        colApellido1.setCellValueFactory(new PropertyValueFactory<>("Primer Apellido"));
-        colApellido2.setCellValueFactory(new PropertyValueFactory<>("Segundo Apellido"));
-        colNombres.setCellValueFactory(new PropertyValueFactory<>("Nombres"));
-        colCalificacion.setCellValueFactory(new PropertyValueFactory<>("Calificación"));
+        colMatricula.setCellValueFactory(new PropertyValueFactory<>("matricula"));
+        colApellido1.setCellValueFactory(new PropertyValueFactory<>("primerApellido"));
+        colApellido2.setCellValueFactory(new PropertyValueFactory<>("segundoApellido"));
+        colNombres.setCellValueFactory(new PropertyValueFactory<>("nombres"));
+        colCalificacion.setCellValueFactory(new PropertyValueFactory<>("calificacion"));
 
         // Hacer editable la columna de calificación
         tablaEstudiantes.setEditable(true);
@@ -49,22 +51,22 @@ public class ControladorCapturarCalificaciones {
             Estudiante est = event.getRowValue();
             Integer nueva = event.getNewValue();
 
-            // Si el usuario dejó vacío o escribió algo raro, newValue puede venir null
-            if (nueva == null) {
-                VistasAplicacion.alert(Alert.AlertType.WARNING, "Aviso", "Calificación inválida.");
+            if (nueva == null || nueva < 0 || nueva > 100) {
+                VistasAplicacion.alert(Alert.AlertType.WARNING, "Aviso", "Calificación inválida (0 a 100).");
                 tablaEstudiantes.refresh();
                 return;
             }
 
-            // Validación (ajusta rango si manejas 0-10 por ejemplo)
-            if (nueva < 0 || nueva > 100) {
-                VistasAplicacion.alert(Alert.AlertType.WARNING, "Aviso", "Calificación inválida (0 a 100).");
-                tablaEstudiantes.refresh(); // regresa visualmente
-                return;
-            }
-
-            //Se actualiza el MISMO objeto en la lista compartida
             est.setCalificacion(nueva);
         });
+    }
+
+    @FXML
+    private void volverAlMenu() {
+        try {
+            VistasAplicacion.cambiarEscenaYObtenerController(lblUsuario, "/views/MenuView.fxml");
+        } catch (IOException e) {
+            VistasAplicacion.alert(Alert.AlertType.ERROR, "Error", "No se pudo regresar al menu:\n" + e.getMessage());
+        }
     }
 }

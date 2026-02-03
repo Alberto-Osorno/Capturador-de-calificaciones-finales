@@ -8,30 +8,32 @@
            xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="controladores.ControladorCapturarCalificaciones"
            prefWidth="700.0" prefHeight="420.0">
-    <children>
-        <VBox spacing="10" prefWidth="700" prefHeight="420" alignment="CENTER">
+    <VBox spacing="10" prefWidth="700" prefHeight="500" alignment="CENTER">
 
-            <!-- Título -->
-            <Label alignment="CENTER" text="CAPTURADOR DE CALIFICACIONES" underline="true">
-                <font>
-                    <Font size="20.0" />
-                </font>
-            </Label>
+        <!-- Título -->
+        <Label alignment="CENTER" text="CAPTURADOR DE CALIFICACIONES" underline="true">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Label>
 
-            <!-- Usuario logueado -->
-            <Label fx:id="lblUsuario" text="Sesión:"/>
+        <!-- Usuario logueado -->
+        <Label fx:id="lblUsuario" text="Sesión:"/>
 
-            <!-- Tabla de estudiantes -->
-            <TableView fx:id="tablaEstudiantes">
-                <columns>
-                    <TableColumn fx:id="colMatricula" text="Matrícula" prefWidth="100"/>
-                    <TableColumn fx:id="colApellido1" text="Primer Apellido" prefWidth="150"/>
-                    <TableColumn fx:id="colApellido2" text="Segundo Apellido" prefWidth="150"/>
-                    <TableColumn fx:id="colNombres" text="Nombres" prefWidth="200"/>
-                    <TableColumn fx:id="colCalificacion" text="Calificación" prefWidth="100"/>
-                </columns>
-            </TableView>
+        <!-- Tabla de estudiantes -->
+        <TableView fx:id="tablaEstudiantes">
+            <columns>
+                <TableColumn fx:id="colMatricula" text="Matrícula" prefWidth="100"/>
+                <TableColumn fx:id="colApellido1" text="Primer Apellido" prefWidth="150"/>
+                <TableColumn fx:id="colApellido2" text="Segundo Apellido" prefWidth="150"/>
+                <TableColumn fx:id="colNombres" text="Nombres" prefWidth="200"/>
+                <TableColumn fx:id="colCalificacion" text="Calificación" prefWidth="100"/>
+            </columns>
+        </TableView>
 
-        </VBox>
-    </children>
+        <!-- Volver al menu -->
+        <Button text="VOLVER AL MENU"
+                prefWidth="320.0" prefHeight="40.0"
+                onAction="#volverAlMenu"/>
+    </VBox>
 </StackPane>
