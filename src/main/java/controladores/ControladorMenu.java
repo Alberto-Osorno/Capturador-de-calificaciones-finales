@@ -36,8 +36,10 @@ public class ControladorMenu {
     @FXML
     private void generarCSV() {
         try {
-            ManipuladorCSV.generarArchivoCSV(estadosPantallas.getEstudiantes(), archivo);
-            VistasAplicacion.alert(Alert.AlertType.INFORMATION, "Listo", "CSV generado correctamente.");
+            boolean CSVGenerado = ManipuladorCSV.generarArchivoCSV(estadosPantallas.getEstudiantes(), archivo);
+            if (CSVGenerado){
+                VistasAplicacion.alert(Alert.AlertType.INFORMATION, "Listo", "CSV generado correctamente.");
+            }
         } catch (Exception e) {
             VistasAplicacion.alert(Alert.AlertType.ERROR, "Error", "No se pudo generar el CSV:\n" + e.getMessage());
         }
