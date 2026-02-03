@@ -12,10 +12,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ControladorLogin {
-    @FXML
-    private  TextField usuario;
-    @FXML
-    private PasswordField contrasenia;
+    @FXML private  TextField usuario;
+    @FXML private PasswordField contrasenia;
 
     private ManipuladorCSV archivoCSV = new ManipuladorCSV();
     private ArrayList<Usuario> usuarios;
