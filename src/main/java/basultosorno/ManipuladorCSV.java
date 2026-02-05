@@ -25,7 +25,7 @@ public class ManipuladorCSV {
 //            String ruta = scanner.nextLine();
 
             //Instancia de BufferedReader que usa FileReader que recibe como argumento la ruta del archivo csv
-            try (BufferedReader lector = new BufferedReader(new FileReader("./src/main/resources/listaDS.csv"))) {
+            try (BufferedReader lector = new BufferedReader(new FileReader("./src/main/resources/estudiantes.csv"))) {
                 //Sí la ruta termina con "csv" (para saber si es un archivo csv)
                 //if (ruta.endsWith("csv")){
 //                    bandera = true;
