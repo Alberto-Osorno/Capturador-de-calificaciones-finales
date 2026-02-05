@@ -12,17 +12,25 @@ FUNCIONALIDADES
 
 REQUISITOS
 ----------
-Antes de poder compilar el programa es necesario tener instalado el JDK 17, o una versión más actual del mismo y Apache Maven. Tambien es necesario haber descargado el archivo "ADA3_U1_T3.zip" y haber extraido su contido ("Manipulador.java" y "Main.java") en una carpeta propia.
+Antes de poder compilar el programa es necesario tener instalado el JDK 17, o una versión más actual del mismo y Apache Maven. También es necesario haber descargado el archivo "ADA3_U1_T3.zip" y haber extraido su contido ("Manipulador.java" y "Main.java") en una carpeta propia.
+El archivo donde estan los usuarios se debe nombrar "usuarios.csv" y el archivo donde están los alumnos se debe nombrar "alumnos.csv" dichos archivos deben estar
+en la misma carpeta de nombre "resources".
 
-
-ESPECIFICACIONES ADA2 T2
+ESPECIFICACIONES T2
 -----------------------
 -Crear el algoritmo de encriptamiento (10 minutos). Su implementación fue sencilla por diseño, usamos el cifrado César.
 -Crear la funcionalidad de login (40 minutos). Se implementó una autenticación usando el algoritmo de encriptación con la contraseña.
 
-ESPECIFICACIONES ADA2 T3
+ESPECIFICACIONES T3
 -----------------------
 -Crear la funcionalidad para generar un reporte en pdf (20 minutos). Se utilizó la librería iText para generar el reporte en formato PDF.
+
+ESPECIFICACIONES T4
+-----------------------
+- Implementar una interfaz gráfica.
+- Login.
+- Captura de calificaciones y modificar calificaciones (se implementaron juntos).
+- Generación de CSV Y PDF.
 
 PASOS PARA COMPILAR
 -------------------
@@ -37,7 +45,7 @@ PASOS PARA EJECUTAR
 -------------------
 En la ruta donde se encuentra el código fuente ejecute el comando:
 
-    mvn exec:java
+    mvn clean javafx:run
 
 Este comando hará que se empiece a ejecutar el programa.
 
